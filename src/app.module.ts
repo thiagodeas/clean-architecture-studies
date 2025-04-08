@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { UserController } from './infra/controllers/user.controller';
 import { CreateUserUseCase } from './application/user/use-cases/create-user.use-case';
 import { InMemoryUserRepository } from './infra/repositories/in-memory-user.repository';
-import { FindAllUsersUseCase } from './application/user/use-cases/find-all-users.use-case';
+import { ListAllUsersUseCase } from './application/user/use-cases/list-all-users.use-case';
 
 
 @Module({
@@ -12,7 +12,7 @@ import { FindAllUsersUseCase } from './application/user/use-cases/find-all-users
   {
     provide: 'UserRepository',
     useClass: InMemoryUserRepository,
-  }, FindAllUsersUseCase
+  }, ListAllUsersUseCase
 ],
 })
 export class AppModule {}
