@@ -1,8 +1,8 @@
-import { NotFoundException } from "@nestjs/common";
+import { Inject, NotFoundException } from "@nestjs/common";
 import { UserRepository } from "src/domain/repositories/user.repository";
 
 export class DeleteUserUseCase {
-    constructor(private readonly userRepository: UserRepository) {}
+    constructor(@Inject('UserRepository') private readonly userRepository: UserRepository) {}
 
     async execute(id: string): Promise<void> {
         const user = await this.userRepository.findByEmail(id);
