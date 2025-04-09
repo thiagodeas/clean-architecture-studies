@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
+import { Inject, Injectable, NotFoundException } from "@nestjs/common";
 import { User } from "src/domain/entities/user.entity";
 import { UserRepository } from "src/domain/repositories/user.repository";
 import { UpdateUserDto } from "src/infra/dto/update-user.dto";
@@ -6,7 +6,7 @@ import * as bcrypt from "bcrypt";
 
 @Injectable()
 export class UpdateUserUseCase {
-    constructor(private readonly userRepository: UserRepository) {}
+    constructor(@Inject('UserRepository') private readonly userRepository: UserRepository) {}
 
     async execute(dto: UpdateUserDto): Promise<User> {
         const user = await this.userRepository.findByEmail(dto.email? dto.email : '');
