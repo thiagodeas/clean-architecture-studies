@@ -3,16 +3,20 @@ import { UserController } from './infra/controllers/user.controller';
 import { CreateUserUseCase } from './application/user/use-cases/create-user.use-case';
 import { InMemoryUserRepository } from './infra/repositories/in-memory-user.repository';
 import { ListAllUsersUseCase } from './application/user/use-cases/list-all-users.use-case';
+import { UpdateUserUseCase } from './application/user/use-cases/update-user.use-case';
 
 
 @Module({
   imports: [],
   controllers: [UserController],
-  providers: [CreateUserUseCase,
+  providers: [
+  CreateUserUseCase,
   {
     provide: 'UserRepository',
     useClass: InMemoryUserRepository,
-  }, ListAllUsersUseCase
+  },
+  ListAllUsersUseCase,
+  UpdateUserUseCase,
 ],
 })
 export class AppModule {}
