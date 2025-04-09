@@ -8,8 +8,8 @@ import * as bcrypt from "bcrypt";
 export class UpdateUserUseCase {
     constructor(@Inject('UserRepository') private readonly userRepository: UserRepository) {}
 
-    async execute(dto: UpdateUserDto): Promise<User> {
-        const user = await this.userRepository.findByEmail(dto.email? dto.email : '');
+    async execute(id: string, dto: UpdateUserDto): Promise<User> {
+        const user = await this.userRepository.findById(id);
         if (!user) {
             throw new NotFoundException('User not found');
         }

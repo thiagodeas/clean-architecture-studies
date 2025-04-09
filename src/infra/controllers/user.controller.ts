@@ -25,9 +25,9 @@ export class UserController {
         return this.listAllUsersUseCase.execute();
     }
 
-    @Patch()
-    async updateUser(@Body() dto: UpdateUserDto) {
-        return this.updateUserUseCase.execute(dto);
+    @Patch(':id')
+    async updateUser(@Param('id') id: string, @Body() dto: UpdateUserDto) {
+        return this.updateUserUseCase.execute(id, dto);
     }
 
     @Delete(':id')
