@@ -1,10 +1,10 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from "@nestjs/common";
 import { CreateUserUseCase } from "src/application/user/use-cases/create-user.use-case";
 import { CreateUserDto } from "../dto/create-user.dto";
-import { ListAllUsersUseCase } from './../../application/user/use-cases/list-all-users.use-case';
+import { ListAllUsersUseCase } from '../../../application/user/use-cases/list-all-users.use-case';
 import { UpdateUserUseCase } from "src/application/user/use-cases/update-user.use-case";
 import { UpdateUserDto } from "../dto/update-user.dto";
-import { DeleteUserUseCase } from './../../application/user/use-cases/delete-user.use-case';
+import { DeleteUserUseCase } from '../../../application/user/use-cases/delete-user.use-case';
 
 @Controller('users')
 export class UserController {

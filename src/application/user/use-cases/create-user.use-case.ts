@@ -1,5 +1,5 @@
 import { UserRepository } from "src/domain/repositories/user.repository";
-import { CreateUserDto } from "../../../infra/dto/create-user.dto";
+import { CreateUserDto } from "../../../infra/users/dto/create-user.dto";
 import { User } from "src/domain/entities/user.entity";
 import { ConflictException, Inject, Injectable } from "@nestjs/common";
 import * as bcrypt from "bcrypt";
