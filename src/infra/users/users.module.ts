@@ -20,6 +20,7 @@ import { DeleteUserUseCase } from "src/application/user/use-cases/delete-user.us
         },
         
     ],
+    exports: ['UserRepository'],
 })
 
 export class UsersModule {}
